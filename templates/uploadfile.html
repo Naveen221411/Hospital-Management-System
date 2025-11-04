@@ -1,0 +1,35 @@
+{% extends "managementhome.html" %} {% block content %}
+<div class="book_apointment_area">
+  <div class="container">
+    <div class="row justify-content-end">
+      <div class="col-lg-7">
+        <div class="popup_box">
+          <div class="popup_inner">
+            <h3>
+              <span>Upload Form</span>
+            </h3>
+            <center><b>{{ msg }}</b></center>
+
+            <form
+              action="{{url_for('reportuploadfile')}}"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <div class="col-xl-9">
+                <input type="text" name="id" value="{{id}}" readonly hidden />
+              </div>
+              <div class="col-xl-9">
+                <input type="file" placeholder="Upload File" name="filedata" />
+              </div>
+
+              <div class="col-xl-9">
+                <button type="submit" class="boxed-btn3">Upload File</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

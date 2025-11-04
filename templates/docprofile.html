@@ -1,0 +1,26 @@
+{% extends "managementhome.html" %} {% block content %}
+
+<center>
+  <div class="card mb-3" style="max-width: 540px; margin-top: 10rem">
+    <div class="row">
+      {% for i in data %}
+
+      <div class="col-md-8">
+        <div class="card-body">
+          <img src="/static/profiles/{{i[8]}}" alt="No Image Found" style="" />
+          <center>
+            <h3>My Profile</h3>
+            <h5 class="card-title">Name : {{i[1]}}</h5>
+            <h5 class="card-title">Email : {{i[5]}}</h5>
+            <h5 class="card-title">Contact : {{i[4]}}</h5>
+          </center>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</cen
+
+ter>
+
+{% endblock %}

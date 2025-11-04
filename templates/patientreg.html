@@ -1,0 +1,68 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-7" style="margin-top: 120px">
+    <div class="popup_box">
+      <div class="popup_inner">
+        <h3><b>Patient Registration</b></h3>
+        <center>{{ msg }}</center>
+        <form action="{{ url_for('Patientreg') }}" method="post" enctype="multipart/form-data">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label for="name" class="form-label"><b>Name:</b></label>
+              <input id="name" type="text" class="form-control" placeholder="Enter Name" name="name" required />
+            </div>
+            <div class="col-md-4">
+              <label for="email" class="form-label"><b>Email:</b></label>
+              <input id="email" type="email" class="form-control" placeholder="Enter Email" name="email" required />
+            </div>
+            <div class="col-md-4">
+              <label for="address" class="form-label"><b>Address:</b></label>
+              <input id="address" type="text" class="form-control" placeholder="Enter Address" name="address" />
+            </div>
+            <div class="col-md-4">
+              <label for="contact" class="form-label"><b>Contact:</b></label>
+              <input id="contact" type="text" class="form-control" placeholder="Enter Contact" name="contact" />
+            </div>
+            <div class="col-md-4">
+              <label for="password" class="form-label"><b>Password:</b></label>
+              <div class="input-group">
+                <input id="password" type="password" class="form-control" placeholder="Enter Password" name="password" required />
+                <button class="btn btn-outline-secondary" type="button" id="password-toggle">Show</button>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="confirm-password" class="form-label"><b>Confirm Password:</b></label>
+              <div class="input-group">
+                <input id="confirm-password" type="password" class="form-control" placeholder="Enter Confirm Password" name="confirmpassword" required />
+                <button class="btn btn-outline-secondary" type="button" id="confirm-password-toggle">Show</button>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const passwordToggle = document.getElementById('password-toggle');
+  const passwordInput = document.getElementById('password');
+  passwordToggle.addEventListener('click', () => {
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    passwordToggle.textContent = type === 'password' ? 'Show' : 'Hide';
+  });
+  
+  const confirmPasswordToggle = document.getElementById('confirm-password-toggle');
+  const confirmPasswordInput = document.getElementById('confirm-password');
+  confirmPasswordToggle.addEventListener('click', () => {
+    const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    confirmPasswordInput.setAttribute('type', type);
+    confirmPasswordToggle.textContent = type === 'password' ? 'Show' : 'Hide';
+  });
+</script>
+{% endblock %}

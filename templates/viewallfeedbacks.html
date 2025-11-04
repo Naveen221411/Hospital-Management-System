@@ -1,0 +1,27 @@
+{% extends "adminhome.html" %} {% block content %}
+
+<div class="book_apointment_area" style="padding-top: 150px">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <div
+          class="popup_box"
+          style="
+            padding-top: 25px;
+            padding-bottom: 2px;
+            overflow: scroll;
+            height: 150px;
+          "
+        >
+          <div class="popup_inner">
+            {% for row in rows %}
+            
+           <div class="card w-50" style="text-align: center"> {{row[1]}} : {{row[2]}}</div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

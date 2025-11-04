@@ -1,0 +1,70 @@
+{% extends "patienthome.html" %} {% block content %}
+
+<div class="depertment_area" style="padding-bottom: 320px; padding-top: 60px">
+  <div class="container">
+    <div class="row custom_align align-items-end justify-content-between"></div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="depart_ment_tab mb-30">
+          {% with messages = get_flashed_messages() %} {% if messages %}
+          <ul class="flashes">
+            {% for message in messages %}
+            <center><b>{{ message }}</b></center>
+            {% endfor %}
+          </ul>
+          {% endif %} {% endwith %}
+          <center>
+            <h2>Report List</h2>
+            <div>
+              <table style="width: 100%">
+                <tr>
+                  <th>
+                    <a><b style="color: black; text-align: center">#</b></a>
+                  </th>
+                  <th>
+                    <a
+                      ><b style="color: black; text-align: center"
+                        >File Name</b
+                      ></a
+                    >
+                  </th>
+
+                  <th>
+                    <a><b style="color: black; text-align: center">Staus</b></a>
+                  </th>
+                  <th>
+                    <a
+                      ><b style="color: black; text-align: center"
+                        >Report Download</b
+                      ></a
+                    >
+                  </th>
+                </tr>
+                {% for row in data %}
+                <tr>
+                  {% for value in row %}
+                  <td>
+                    <a style="text-align: center"
+                      ><b style="color: grey">{{ value }}</b></a
+                    >
+                  </td>
+                  {% endfor %}
+                  <td>
+                    <a
+                      href="{{url_for('download1',id=row[0])}}"
+                      style="text-align: center"
+                      ><b style="color: grey">Download</b></a
+                    >
+                  </td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

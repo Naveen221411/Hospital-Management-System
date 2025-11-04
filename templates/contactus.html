@@ -1,0 +1,146 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10" style="margin-top: 20px">
+        <div class="popup_box" style="padding-top: 0px; padding-bottom: 2px">
+            <center>
+                <div class="popup_inner">
+                    <h3>Contact Us</h3>
+                    <style>
+                        /* Optional styling to make the form look nicer */
+                        body {
+                            font-family: Arial, sans-serif;
+                            margin: 20px;
+                            padding: 0;
+                        }
+
+                        form {
+                            max-width: 600px;
+                            margin: 0 auto;
+                            padding: 20px;
+                            border: 1px solid #ddd;
+                            border-radius: 10px;
+                            background-color: #f9f9f9;
+                        }
+
+                        .form-group {
+                            margin-bottom: 15px;
+                        }
+
+                        label {
+                            display: block;
+                            margin-bottom: 5px;
+                            font-weight: bold;
+                        }
+
+                        input, textarea {
+                            width: 100%;
+                            padding: 8px;
+                            border: 1px solid #ccc;
+                            border-radius: 5px;
+                        }
+
+                        button {
+                            padding: 10px 20px;
+                            border: none;
+                            border-radius: 5px;
+                            font-size: 16px;
+                            cursor: pointer;
+                        }
+
+                        .submit-btn {
+                            background-color: #28a745;
+                            color: white;
+                        }
+
+                        .clear-btn {
+                            background-color: #dc3545;
+                            color: white;
+                            margin-left: 10px;
+                        }
+
+                        .half-width {
+                            width: 48%; /* To ensure some space between the fields */
+                        }
+                    </style>
+
+                    <div class="row">
+                        <!-- Left Side: Contact Information -->
+                        <div class="col-lg-5 col-md-12 col-sm-12">
+                            <div class="row pt-3">
+                                <div class="col-lg-1 offset-1 col-md-2 col-sm-2">
+                                    <span style="font-size: 30px; color: cadetblue;">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </span>
+                                </div>
+                                <div class="col-lg-10 col-md-9 col-sm-9">
+                                    <h4 class="font-weight-light">Find Us at the Office</h4>
+                                    <p>
+                                        <b>HEALHUB HOSPITAL</b>, Eluru Rd,<br>
+                                        Airport Road, Enikepadu,<br>
+                                        Vijayawada, AP
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row pt-3">
+                                <div class="col-lg-1 offset-1 col-md-2 col-sm-2">
+                                    <span style="font-size: 30px; color: coral;">
+                                        <i class="fas fa-phone-volume"></i>
+                                    </span>
+                                </div>
+                                <div class="col-lg-10 col-md-9 col-sm-9">
+                                    <h4 class="font-weight-light">Give Us a Ring</h4>
+                                    <p>
+                                        Raya Rajesh<br>
+                                        +91 8602782624<br>
+                                        Vijayawada, AP
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Contact Form -->
+                        <div class="col-lg-7 col-md-12 col-sm-12">
+                            <form action="{{url_for('contactus')}}" method="post">
+                                <div class="form-row">
+                                    <div class="form-group half-width">
+                                        <label for="fullName">Full Name</label>
+                                        <input type="text" id="fullName" name="fullName" placeholder="Enter Full Name" required>
+                                    </div>
+                                    <div class="form-group half-width">
+                                        <label for="contactNumber">Contact Number</label>
+                                        <input type="tel" id="contactNumber" name="contactNumber" placeholder="Enter Contact Number" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group half-width">
+                                        <label for="email">Email ID</label>
+                                        <input type="email" id="email" name="email" placeholder="Enter Email ID" required>
+                                    </div>
+                                    <div class="form-group half-width">
+                                        <label for="subject">Subject</label>
+                                        <input type="text" id="subject" name="subject" placeholder="Enter Subject" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" placeholder="Enter Your Message" rows="5" required></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group half-width">
+                                        <button type="submit" class="submit-btn">Submit</button>
+                                    </div>
+                                    <div class="form-group half-width">
+                                        <button type="reset" class="clear-btn">Clear</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+{% endblock %}

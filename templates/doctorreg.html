@@ -1,0 +1,96 @@
+{% extends "index.html" %} 
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-7" style="margin-top: 120px">
+    <div class="popup_box">
+      <div class="popup_inner">
+        <h3><b>Doctor Registration</b></h3>
+        <center>{{ msg }}</center>
+        <form action="{{ url_for('doctorregistration') }}" method="post" enctype="multipart/form-data">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label for="department" class="form-label">Department:</label>
+              <select id="department" class="form-select" name="Department" required>
+                <option value="" disabled selected>Please select Department</option>
+                <option value="Pulmonary">Pulmonary</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Physiotherapy">Physiotherapy</option>
+                <option value="Gynaecology">Gynaecology</option>
+                <option value="ENT">ENT</option>
+                <option value="Nephrology">Nephrology</option>
+                <option value="Dietitian">Dietitian</option>
+                <option value="Gastroenterology">Gastroenterology</option>
+                <option value="Dermatology">Dermatology</option>
+                <!-- Add other options here -->
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="name" class="form-label">Your Name:</label>
+              <input id="name" type="text" class="form-control" placeholder="Your name" name="Name" required />
+            </div>
+            <div class="col-md-4">
+              <label for="age" class="form-label">Your Age:</label>
+              <input id="age" type="text" class="form-control" placeholder="Your age" name="Age" required />
+            </div>
+            <div class="col-md-4">
+              <label for="phone" class="form-label">Phone Number:</label>
+              <input id="phone" type="text" class="form-control" placeholder="Phone number" name="Number" required />
+            </div>
+            <div class="col-md-4">
+              <label for="email" class="form-label">Email Address:</label>
+              <input id="email" type="email" class="form-control" placeholder="Email Address" name="email" required />
+            </div>
+            
+            <div class="col-md-6">
+              <label for="password" class="form-label">Password:</label>
+              <div class="input-group">
+                <input id="password" type="password" class="form-control" placeholder="Password" name="password" required />
+                <button class="btn btn-outline-secondary" type="button" id="password-toggle">Show</button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="confirm-password" class="form-label">Confirm Password:</label>
+              <div class="input-group">
+                <input id="confirm-password" type="password" class="form-control" placeholder="Confirm Password" name="conpassword" required />
+                <button class="btn btn-outline-secondary" type="button" id="confirm-password-toggle">Show</button>
+              </div>
+            </div>
+            <div class="col-xl-12">
+              <label>Select Profile</label>
+              <input type="file" required name="profile" />
+            </div>
+
+            </div>
+            
+            
+          
+            
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const passwordToggle = document.getElementById('password-toggle');
+  const passwordInput = document.getElementById('password');
+  passwordToggle.addEventListener('click', () => {
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    passwordToggle.textContent = type === 'password' ? 'Show' : 'Hide';
+  });
+  
+  const confirmPasswordToggle = document.getElementById('confirm-password-toggle');
+  const confirmPasswordInput = document.getElementById('confirm-password');
+  confirmPasswordToggle.addEventListener('click', () => {
+    const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    confirmPasswordInput.setAttribute('type', type);
+    confirmPasswordToggle.textContent = type === 'password' ? 'Show' : 'Hide';
+  });
+</script>
+{% endblock %}

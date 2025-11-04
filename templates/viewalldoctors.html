@@ -1,0 +1,56 @@
+{%extends "adminhome.html" %} {% block content %}
+
+<div class="depertment_area" style="padding-bottom: 320px; padding-top: 60px">
+  <div class="container">
+    <div class="row custom_align align-items-end justify-content-between"></div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="depart_ment_tab mb-30">
+          {% with messages = get_flashed_messages() %} {% if messages %}
+          <ul class="flashes">
+            {% for message in messages %}
+            <center><b>{{ message }}</b></center>
+            {% endfor %}
+          </ul>
+          {% endif %} {% endwith %}
+          <center>
+            <h2>Doctors</h2>
+            <div>
+              <table style="width: 100%">
+                <tr>
+                  <th>#</th>
+                  <th>Doctor Name</th>
+                  <th>Doctor Department</th>
+                  <th>Doctor Age</th>
+                  <th>Doctor Contact</th>
+                  <th>Doctor Email</th>
+                  <th>Action</th>
+                </tr>
+                {% for row in data %}
+                <tr>
+                  {% for value in row %}
+                  <td>
+                    <a style="text-align: center"
+                      ><b style="color: grey">{{ value }}</b></a
+                    >
+                  </td>
+                  {% endfor %}
+                  <td>
+                    <a
+                      href="{{url_for('approvedoctor',id=row[0])}}"
+                      class="btn btn-success"
+                      >Approve</a
+                    >
+                  </td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

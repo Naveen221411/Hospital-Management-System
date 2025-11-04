@@ -1,0 +1,46 @@
+{% extends "patienthome.html" %}
+{% block content %}
+
+<div class="book_apointment_area">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="popup_box">
+          <div class="popup_inner">
+            <h2>Provide Feedback</h2>
+            
+            <!-- Display success message if it exists -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-success" role="alert">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+
+            <!-- Feedback form -->
+            <form action="{{ url_for('providefeedback') }}" method="post" style="background-color: #f9f9f9; padding: 20px; border-radius: 5px;">
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label for="patient_name">Patient Name</label>
+                <input type="text" class="form-control" id="patient_name" placeholder="Enter your name" name="patient_name" style="padding: 10px; border-radius: 10px; border: 1px solid #ccc;" />
+              </div>
+
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label for="review">Review</label>
+                <input type="text" class="form-control" id="review" placeholder="Provide your review here" name="review" style="padding: 10px; border-radius: 10px; border: 1px solid #ccc;" />
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary" style="padding: 10px; border-radius: 5px;">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

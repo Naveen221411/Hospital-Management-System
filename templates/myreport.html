@@ -1,0 +1,65 @@
+{% extends 'patienthome.html' %} {% block content %}
+<div class="book_apointment_area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="popup_box">
+          <div class="popup_inner">
+            <center>{{ msg }}</center>
+            <h4><b>Make Appointment</b></h4>
+
+            <form action="{{url_for('myappointments')}}" method="post">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="department" class="form-label">Select Department</label>
+                  <select id="department" class="form-select" name="Department" required>
+                    <option value="" disabled selected>Please select Department</option>
+                    <option value="Pulmonary">Pulmonary</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="Neurology">Neurology</option>
+                    <option value="Physiotherapy">Physiotherapy</option>
+                    <option value="Gynaecology">Gynaecology</option>
+                    <option value="Anaesthesia">Anaesthesia</option>
+                    <option value="Nephrology">Nephrology</option>
+                    <option value="Dietitian">Dietitian</option>
+                    <option value="Gastroenterology">Gastroenterology</option>
+                    <option value="Dermatology">Dermatology</option>
+                    <!-- Add other options here -->
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label>Select Doctor</label>
+                  <select class="form-select" name="doctor" required>
+                    <option data-display="Please select Department to visit">
+                      Please select Doctor to visit
+                    </option>
+                    {% for j in data %}
+                    <option value="{{j[5]}}">{{j[1]}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Appointment Date</label>
+                  <input type="text" class="datepicker form-control" name="appointmentdate" required readonly min="{{ today }}">
+                </div>
+                <div class="col-md-6">
+                  <label>Appointment Time</label>
+                  <input class="timepicker form-control" type="text" id="meeting-time" name="timining" required readonly>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button type="submit" class="boxed-btn3" style="border-radius: 20px; margin-top: 30px">Make appointment</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

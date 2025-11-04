@@ -1,0 +1,40 @@
+{% extends 'index.html' %} {% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-7" style="margin-top: 20px">
+    <div class="popup_box" style="padding-top: 0px; padding-bottom: 2px">
+      <center>
+        <div class="popup_inner">
+          <h3><b>Doctor Login</b></h3>
+
+          <form action="{{url_for('doctorlogin')}}" method="post">
+            <div class="row-4">
+              <div class="col-xl-9">
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  name="useremail"
+                  required
+                />
+              </div>
+              <div class="col-xl-9">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="passcode"
+                  required
+                />
+              </div>
+              <div class="col-xl-9">
+                <button type="submit" class="boxed-btn3">Login</button>
+              </div>
+            </div>
+          </form>
+
+          <a href="{{url_for('doctorregistration')}}">Registration</a>
+        </div>
+      </center>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-7" style="margin-top: 20px">
+        <div class="popup_box" style="padding-top: 0px; padding-bottom: 2px">
+        <center>
+            <div class="popup_inner">
+            <h3>
+                <b>Admin Login Form</b>
+            </h3>
+            <center>{{ msg }}</center>
+            <center>
+            <form action="{{url_for('adminlog')}}" method="post">
+                <div class="row-4">
+                    <div class="col-xl-9">
+                        <input type="text" placeholder="Your Email" name="adminemail" required>
+                    </div>
+                    <div class="col-xl-9">
+                        <input type="password" placeholder="Password" name="adminpassword" required>
+                    </div>
+                    <div class="col-xl-9">
+                        <button type="submit" class="boxed-btn3">Login</button>
+                    </div>
+                </div>
+            </form>
+            </center>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
